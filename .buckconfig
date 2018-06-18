@@ -1,0 +1,44 @@
+[alias]
+sample = //:SampleApp
+sample_tests = //:SampleAppTests
+
+[cxx]
+default_platform = iphonesimulator-x86_64
+cflags = -g -fmodules -fobjc-arc -D BUCK -w
+combined_preprocess_and_compile = true
+
+[swift]
+version = 4.0
+compiler_flags = -DBUCK -enable-testing
+; project_wmo = true
+
+[apple]
+asset_catalog_validation = XCODE
+device_helper_path = /usr/local/bin/fbsimctl
+; provisioning_profile_read_command = security cms -Di
+use_swift_delegate = false
+; Generated projects would not build unless use_header_maps_in_xcode is set to false.
+use_header_maps_in_xcode = false
+; TODO: Figure out how to use zipped xctool in the repo or how to fetch from artifactory.
+; xctool_path = tools/xctool/bin/xctool
+; Must launch simulator before running tests, e.g. with 'xcrun instruments -w "iPhone 6 (9.3)" 2>/dev/null || true'
+xctool_default_destination_specifier = platform=iOS Simulator,OS=11.2,name=iPhone X
+; xctool_default_destination_specifier = platform=iOS Simulator,OS=9.3,name=iPhone 6
+; xctool_default_destination_specifier = platform=iOS Simulator,OS=11.2,name=iPhone 7
+; Override when needed by using buck's --config option,
+; e.g. for Labs add --config apple.iphonesimulator_target_sdk_version=10.0 --config apple.iphoneos_target_sdk_version=10.0.
+; See buckw wrapper for more details.
+iphonesimulator_target_sdk_version = 9.0
+iphoneos_target_sdk_version = 9.0
+
+[project]
+ide = xcode
+; Don't ask about killing Xcode when generating Xcode projects.
+ide_force_kill = never
+build_file_search_method = watchman
+allow_symlinks = forbid
+; Using oneline syntax to keep buck parser working. (No longer requried.)
+ignore = pods/**/* .buckd, .fastlane, fastlane, .hg, .git, **/.git/**/*, .idea, buck-cache, buck-out
+
+; [buildfile]
+; includes = //DEFS

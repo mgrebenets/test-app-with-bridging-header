@@ -1,0 +1,21 @@
+#!/bin/bash
+
+BUCK_WRAPPER_DIR="$(which "$0" | xargs -0 -I {} dirname {})"
+BUCK_VERSION="$(cat "${BUCK_WRAPPER_DIR}/.buckversion")"
+BUCK_FORK="$(cat "${BUCK_WRAPPER_DIR}/.buckfork")"
+BUCK_URL="https://jitpack.io/com/github/${BUCK_FORK}/buck/${BUCK_VERSION}/buck-${BUCK_VERSION}.pex"
+BIN_DIR="${BUCK_WRAPPER_DIR}/bin"
+mkdir -p "${BIN_DIR}"
+BUCK_EXECUTABLE="${BIN_DIR}/buck-${BUCK_VERSION}.pex"
+# BUCK_EXECUTABLE="${BIN_DIR}/buck-6c2f9a.pex"
+
+checkBuckBinary() {
+    if [[ ! -f ${BUCK_EXECUTABLE} ]]; then
+        echo "Downloading buck..."
+        curl --fail --progress-bar -o "${BUCK_EXECUTABLE}" -L "${BUCK_URL}"
+    fi
+}
+
+checkBuckBinary
+
+python "${BUCK_EXECUTABLE}" "$@"
