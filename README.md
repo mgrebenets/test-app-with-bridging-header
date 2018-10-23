@@ -1,5 +1,5 @@
 
-Demo project for #1918.
+Demo project for [#1918](https://github.com/facebook/buck/issues/1918) and [#2074](https://github.com/facebook/buck/issues/2074).
 
 Work on a fork, which is based on Uber fork.
 

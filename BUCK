@@ -17,7 +17,7 @@ def sample_app_binary(
     apple_binary(
         name=binary_name,
         module_name=name,
-        modular=True,
+        # modular=True,
         visibility=['PUBLIC'],
         entitlements_file='Sources/Entitlements.entitlements',
         preprocessor_flags=[
