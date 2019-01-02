@@ -9,6 +9,9 @@ apple_binary(
         '-fobjc-arc',
         '-Wno-objc-designated-initializers',
     ],
+    # swift_compiler_flags=[
+    #     '-import-underlying-module',
+    # ],
     headers=glob([
         'Sources/**/*.h',
     ]),
@@ -49,6 +52,7 @@ apple_test(
     ]),
     # test_host_app=':AppBundle',
     deps=[
+        ':AppBinary',
         ':AppBundle',
     ],
     frameworks=[

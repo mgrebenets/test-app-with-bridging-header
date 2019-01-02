@@ -5,7 +5,8 @@ tests = //:Tests
 
 [cxx]
 default_platform = iphonesimulator-x86_64
-cflags = -g -fmodules -fobjc-arc -D BUCK -w
+cflags = -fvisibility=default -g -fmodules -fobjc-arc -D BUCK -w
+cxxflags = $(config cxx.cflags)
 combined_preprocess_and_compile = true
 
 [swift]
