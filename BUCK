@@ -47,7 +47,7 @@ apple_test(
         'Tests/**/*.swift',
         'Tests/**/*.m',
     ]),
-    # test_host_app=':App',
+    # test_host_app=':AppBundle',
     deps=[
         ':AppBundle',
     ],
