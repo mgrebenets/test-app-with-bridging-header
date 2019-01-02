@@ -1,6 +1,7 @@
 [alias]
-sample = //:SampleApp
-sample_tests = //:SampleAppTests
+app = //:App
+app_binary = //:AppBinary
+tests = //:Tests
 
 [cxx]
 default_platform = iphonesimulator-x86_64
@@ -8,7 +9,7 @@ cflags = -g -fmodules -fobjc-arc -D BUCK -w
 combined_preprocess_and_compile = true
 
 [swift]
-version = 4.0
+version = 4.2
 compiler_flags = -DBUCK -enable-testing
 ; project_wmo = true
 
@@ -38,7 +39,4 @@ ide_force_kill = never
 build_file_search_method = watchman
 allow_symlinks = forbid
 ; Using oneline syntax to keep buck parser working. (No longer requried.)
-ignore = pods/**/* .buckd, .fastlane, fastlane, .hg, .git, **/.git/**/*, .idea, buck-cache, buck-out
-
-; [buildfile]
-; includes = //DEFS
+ignore = ignore, .buckd, .fastlane, fastlane, .hg, .git, **/.git/**/*, .idea, buck-cache, buck-out

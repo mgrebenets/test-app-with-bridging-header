@@ -2,8 +2,11 @@
 
 import XCTest
 
-@testable import SampleApp
+@testable import App
 
 class LoginErrorTests: XCTestCase {
 
+    func testOne() {
+        print("test")
+    }
 }

@@ -9,7 +9,7 @@ import UIKit
     typealias LaunchOptionsKey = UIApplicationLaunchOptionsKey
 #endif
 
-class MyClass: NSObject, ObjCProtocol {
+class MyClass: NSObject {
     var name: String = ""
 }
 

@@ -2,7 +2,7 @@
 
 @import Foundation;
 
-@protocol ObjCProtocol <NSObject>
+@interface ObjCModel : NSObject
 
 @property(nonatomic, readonly, strong) NSString *name;
 
