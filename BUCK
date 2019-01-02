@@ -28,7 +28,7 @@ apple_binary(
 
 
 apple_bundle(
-    name='App',
+    name='AppBundle',
     visibility=['PUBLIC'],
     binary=':AppBinary',
     extension='app',
@@ -49,7 +49,7 @@ apple_test(
     ]),
     # test_host_app=':App',
     deps=[
-        ':App',
+        ':AppBundle',
     ],
     frameworks=[
         '$SDKROOT/System/Library/Frameworks/Foundation.framework',

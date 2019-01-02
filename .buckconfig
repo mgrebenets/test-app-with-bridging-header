@@ -1,5 +1,5 @@
 [alias]
-app = //:App
+app = //:AppBundle
 app_binary = //:AppBinary
 tests = //:Tests
 
